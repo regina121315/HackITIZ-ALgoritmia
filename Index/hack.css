@@ -165,3 +165,267 @@ main {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
+
+/* Estilos mejorados para el cronograma */
+#cronograma {
+    background: #f8f9fa; /* Un fondo blanco-gris suave para la sección */
+    padding: 80px 0; /* Espaciado vertical para un mejor respiro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #1f2937; /* Tono oscuro para el título */
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.section-title .icon {
+    font-size: 2.5rem;
+    color: var(--accent-2); /* El color del icono coincide con el tema */
+}
+
+/* Estilos de la línea de tiempo */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Aumenta el espacio entre los pasos */
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    background: #ffffff; /* Fondo blanco para las tarjetas de paso */
+    padding: 24px; /* Aumenta el padding */
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Sombra más sutil y profesional */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para el efecto hover */
+}
+
+.step:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento al pasar el cursor */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.step-content {
+    margin-left: 20px;
+}
+
+.step-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.step-content .muted {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Estilos de la burbuja */
+.bubble {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 1.5rem;
+    flex-shrink: 0; /* Evita que la burbuja se encoja */
+}
+
+.step-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.b1 { background-color: #3b82f6; /* Azul más vibrante */ }
+.b2 { background-color: #22c55e; /* Verde más vibrante */ }
+.b3 { background-color: #8b5cf6; /* Púrpura más vibrante */ }
+
+
+/* ... (existing animation styles) ... */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px); /* Un poco más de desplazamiento para un efecto más dramático */
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    .step-content {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+}
+
+/* ===== ESTILOS PARA FORMULARIO ===== */
+
+#registro {
+    padding: 80px 15px;
+    background: linear-gradient(135deg, var(--accent-5), var(--accent-2));
+    /* Usa un gradiente similar para la consistencia */
+}
+
+.form-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-container .section-title {
+    color: var(--card);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-member {
+    border: none;
+    padding: 25px;
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius);
+    transition: all 0.5s ease-out;
+}
+
+legend {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--card);
+    background: linear-gradient(135deg, var(--accent-4), var(--accent-2));
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group.span-full {
+    grid-column: 1 / -1;
+    /* Hace que el campo de comentarios ocupe todo el ancho */
+}
+
+.input-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #f0f0f0;
+    font-size: 0.95rem;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    /* Importante para que el padding no afecte el ancho */
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-4);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 207, 209, 0.3);
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-note {
+    text-align: center;
+    margin: 30px 0;
+    padding: 15px;
+    background-color: rgba(249, 248, 113, 0.2);
+    border-left: 5px solid var(--accent-1);
+    color: var(--card);
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto 0;
+    padding: 18px 20px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #1f2937;
+    background: var(--accent-1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background: #fffb20;
+}
+
+/* Solución para mostrar la sección al hacer clic en el enlace */
+#registro:target {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Muestra los campos del formulario cuando la sección es el target */
+#registro:target .form-member {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Efecto de cascada para una animación más profesional */
+#registro:target .form-member:nth-of-type(1) { transition-delay: 0.1s; }
+#registro:target .form-member:nth-of-type(2) { transition-delay: 0.2s; }
+#registro:target .form-member:nth-of-type(3) { transition-delay: 0.3s; }
+#registro:target .form-member:nth-of-type(4) { transition-delay: 0.4s; }
+#registro:target .form-member:nth-of-type(5) { transition-delay: 0.5s; }
+#registro:target .form-member:nth-of-type(6) { transition-delay: 0.6s; } /* Este es el asesor */
