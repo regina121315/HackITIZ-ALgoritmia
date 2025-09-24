@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Hackaton ITIZ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registro.css') }}">
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Registro de Equipos - Hackaton ITIZ 🚀</h1>
+        
+        <div class="progress-bar">
+            <div class="progress-step active" data-title="Equipo">1</div>
+            <div class="progress-step" data-title="Capitán">2</div>
+            <div class="progress-step" data-title="Integrantes">3</div>
+            <div class="progress-step" data-title="Asesor">4</div>
+            <div class="progress-step" data-title="Finalizar">5</div>
+        </div>
+
+        <form id="multiStepForm" action="#" method="POST">
+
+            <div class="form-step active">
+                <legend>Paso 1: Información General</legend>
+                <div class="input-group">
+                    <label for="escuela">Nombre de la Escuela</label>
+                    <select id="escuela" name="escuela" required>
+                        <option value="" disabled selected>-- Selecciona una opción --</option>
+                        <option value="Instituto Tecnológico de Iztapalapa">Instituto Tecnológico de Iztapalapa</option>
+                        <option value="Otra Escuela">Otra Escuela</option>
+                    </select>
+                </div>
+                <div class="input-group" id="campoControl" style="display:none;">
+                    <label for="numControl">Número de Control</label>
+                    <input type="text" id="numControl" name="numControl" placeholder="Tu número de control">
+                </div>
+                <div class="input-group">
+                    <label for="nombreEquipo">Nombre del Equipo</label>
+                    <input type="text" id="nombreEquipo" name="nombreEquipo" placeholder="Ej. Code Breakers" required>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn next-btn">Siguiente</button>
+                </div>
+            </div>
+
+            <div class="form-step">
+                <legend>Paso 2: Registro del Capitán</legend>
+                <div class="form-grid">
+                    <input type="text" name="nombre_capitan" placeholder="Nombre(s)" required>
+                    <input type="text" name="paterno_capitan" placeholder="Apellido Paterno" required>
+                    <input type="text" name="materno_capitan" placeholder="Apellido Materno" required>
+                    <input type="text" name="alergias_capitan" placeholder="Alergias (Ninguna si no aplica)">
+                    <input type="text" name="discapacidad_capitan" placeholder="Discapacidad (Ninguna si no aplica)">
+                    <input type="text" name="seguridad_social_capitan" placeholder="Número de Seguridad Social" required>
+                    <input type="tel" name="telefono_capitan" placeholder="Número de Teléfono" required>
+                    <input type="tel" name="tel_emergencia" placeholder="Teléfono de Emergencia (para todo el equipo)" required>
+                    <input type="hidden" name="talla_playera_capitan" value="No especificada">
+                </div>
+                 <textarea name="comentarios_capitan" placeholder="Comentarios adicionales..."></textarea>
+                <div class="btn-group">
+                    <button type="button" class="btn prev-btn">Anterior</button>
+                    <button type="button" class="btn next-btn">Siguiente</button>
+                </div>
+            </div>
+
+            <div class="form-step">
+                <legend>Paso 3: Registro de Integrantes (Máximo 5)</legend>
+                
+                <div class="integrante-card">
+                    <h4>Integrante 1</h4>
+                    <div class="form-grid">
+                        <input type="text" name="nombre_int1" placeholder="Nombre(s)" required><input type="text" name="paterno_int1" placeholder="Apellido Paterno" required><input type="text" name="materno_int1" placeholder="Apellido Materno" required><input type="text" name="alergias_int1" placeholder="Alergias"><input type="text" name="discapacidad_int1" placeholder="Discapacidad"><input type="text" name="seguridad_social_int1" placeholder="Seguridad Social" required><input type="tel" name="telefono_int1" placeholder="Teléfono" required>
+                        <input type="hidden" name="talla_playera_int1" value="No especificada">
+                    </div>
+                </div>
+
+                <div id="integrantesAdicionales"></div>
+                
+                <button type="button" class="btn" id="addMemberBtn">Agregar Integrante</button>
+
+                <div class="btn-group">
+                    <button type="button" class="btn prev-btn">Anterior</button>
+                    <button type="button" class="btn next-btn">Siguiente</button>
+                </div>
+            </div>
+
+            <div class="form-step">
+                 <legend>Paso 4: Registro del Profesor/Asesor</legend>
+                 <div class="form-grid">
+                    <input type="text" name="nombre_asesor" placeholder="Nombre(s)" required>
+                    <input type="text" name="paterno_asesor" placeholder="Apellido Paterno" required>
+                    <input type="text" name="materno_asesor" placeholder="Apellido Materno" required>
+                    <input type="text" name="alergias_asesor" placeholder="Alergias (Ninguna si no aplica)">
+                    <input type="text" name="discapacidad_asesor" placeholder="Discapacidad (Ninguna si no aplica)">
+                    <input type="text" name="seguridad_social_asesor" placeholder="Número de Seguridad Social" required>
+                    <input type="tel" name="telefono_asesor" placeholder="Número de Teléfono" required>
+                    <input type="hidden" name="talla_playera_asesor" value="No especificada">
+                </div>
+                 <textarea name="comentarios_asesor" placeholder="Comentarios adicionales..."></textarea>
+                <div class="btn-group">
+                    <button type="button" class="btn prev-btn">Anterior</button>
+                    <button type="button" class="btn next-btn">Siguiente</button>
+                </div>
+            </div>
+
+            <div class="form-step">
+                <legend>Paso 5: Finalizar Registro</legend>
+                <div class="input-group-checkbox">
+                    <input type="checkbox" id="terminos" name="terminos" required>
+                    <label for="terminos">He leído y acepto los <a href="#">términos y condiciones</a> del evento.</label>
+                </div>
+                 <p class="form-note">
+                    <strong>Nota:</strong> Los reconocimientos se generarán con los nombres colocados exactamente como aparecen en este formulario.
+                </p>
+                <div class="btn-group">
+                    <button type="button" class="btn prev-btn">Anterior</button>
+                    <button type="submit" class="btn">Registrar Equipo</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="registro.js"></script>
+</body>
+</html>
