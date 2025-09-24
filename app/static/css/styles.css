@@ -26,6 +26,7 @@
     font-family: 'Times New Roman', Times, serif;
     position: relative;
     /* Para contener elementos posicionados absolutamente */
+    /* margin-top: 10px; */
 }
 
 
@@ -63,7 +64,6 @@
 }
 
 main {
-    /* height: 80vh; */
     background: linear-gradient(135deg, var(--accent-3), var(--accent-5));
     /* background-image: url(https://conecta.tec.mx/sites/default/files/2022-10/alumnos-campus-monterrey-ganadores-hackmty-2022.webp);
     background-size: cover;
@@ -72,22 +72,23 @@ main {
 }
 
 
-.container_main,
+.container_main ,
 .container_leading {
+    margin-top: 10px;
+    height: 80vh;
     background: rgba(230, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 50px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    width: 30%;
+    width: 100%;
     height: 55%;
     max-width: 800px;
     margin: 0 auto;
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: flex-start;
-    position: relative;
-    right: 300px;
+    
 }
 
 .container_leading {
@@ -157,7 +158,7 @@ main {
     align-items: center;
     width: 300px;
     position: relative;
-    left: 600px;
+    left: 750px;
 }
 
 .cta-button:hover {
